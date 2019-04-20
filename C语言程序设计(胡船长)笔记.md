@@ -4,9 +4,9 @@
 
 **左值 右值**
 
-![1555584688113](/home/zhaohang/.config/Typora/typora-user-images/1555584688113.png)**负数右移最大能得到负一**
+![1555584688113](/home/zhaohang/haizei/4.Notebook/picture/1555584688113.png)**负数右移最大能得到负一**!
 
-![1555584868542](/home/zhaohang/.config/Typora/typora-user-images/1555584868542.png)
+![1555584868542](/home/zhaohang/haizei/4.Notebook/picture/1555584868542.png)
 
 ### C语言引入数学函数库<math.h>注意事项
 
@@ -26,7 +26,7 @@
 
 左值和右值不是靠放在左面或者放在右边来区分的
 
-![1555590397515](/home/zhaohang/.config/Typora/typora-user-images/1555590397515.png)
+![1555590397515](../haizei/4.Notebook/picture/1555590397515.png)
 
 ### 运算符优先级
 
@@ -46,9 +46,9 @@
 
 异或运算，若c = a ^ b，那么： a = b ^ c, b = a ^ c;
 
-![1555592136610](/home/zhaohang/.config/Typora/typora-user-images/1555592136610.png)代码如下
+![1555592136610](/home/zhaohang/haizei/4.Notebook/picture/1555592136610.png)代码如下
 
-![1555591603126](/home/zhaohang/.config/Typora/typora-user-images/1555591603126.png)此为运行结果
+![1555591603126](/home/zhaohang/haizei/4.Notebook/picture/1555591603126.png)此为运行结果
 
 ### “与”“或”运算（“&”“|”运算）
 
@@ -66,16 +66,16 @@
 
 ```
 #include <stdio.h>
-#include <>
+#include <math.h>
 int main(){
     double x;
-    scanf
-    
-    
+    scanf("%lf", &x);
+    printf("%lf", pow(x, 1.0 / 3.0));
+    return 0;
 }
 ```
 
-![1555585926701](/home/zhaohang/.config/Typora/typora-user-images/1555585926701.png)
+![1555585926701](/home/zhaohang/haizei/4.Notebook/picture/1555585926701.png)
 
 
 
@@ -100,7 +100,7 @@ int main() {
 }
 ```
 
-![1555586299145](/home/zhaohang/.config/Typora/typora-user-images/1555586299145.png)
+![1555586299145](/home/zhaohang/haizei/4.Notebook/picture/1555586299145.png)
 
 
 
@@ -120,16 +120,17 @@ int main() {
 
 	scanf ("%"PRId16, &a);
 
-![1555588310436](/home/zhaohang/.config/Typora/typora-user-images/1555588310436.png)
+![1555588310436](/home/zhaohang/haizei/4.Notebook/picture/1555588310436.png)
 
-![1555588399306](/home/zhaohang/.config/Typora/typora-user-images/1555588399306.png)
+![1555588399306](/home/zhaohang/haizei/4.Notebook/picture/1555588399306.png)
 
 ### 输出16进制
 
-![1555588509284](/home/zhaohang/.config/Typora/typora-user-images/1555588509284.png)
+![1555588509284](/home/zhaohang/haizei/4.Notebook/picture/1555588509284.png)
 
 ### 输出64位整型的极小值
 
 （极大值需要将这里MIN换成MAX）
 
-![1555588667575](/home/zhaohang/.config/Typora/typora-user-images/1555588667575.png)
+![1555588667575](/home/zhaohang/haizei/4.Notebook/picture/1555588667575.png)
+
