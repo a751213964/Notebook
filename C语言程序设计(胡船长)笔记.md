@@ -1,4 +1,4 @@
-#  C语言程序设计(胡船长)笔记
+C语言程序设计(胡船长)笔记
 
 # 1.数学运算
 
@@ -389,10 +389,14 @@ int main() {
 for (初始化; 循环条件; 执行后2操作) {
     代码块;
 }
-//Step1：
+//Step1：初始化
+//Step2：循环条件判断
+//Step3：执行代码块
+//Step4：执行后操作
+//Step5：跳转到Step2
 ```
 
-![1555756805457](picture/1555756805457.png)
+
 
 #### 随堂练习5
 
@@ -522,6 +526,186 @@ int main() {
 #### 随堂练习题2
 
 请实现一个程序， 读入n， 计算n的阶乘
+
+```
+
+```
+
+
+
+# 函数指针
+
+
+
+int *f1(int);与
+
+int (*f1)(int);的区别
+
+
+
+
+
+### 随堂练习一
+
+**三角形数、五边形数和六角形数**
+
+三角形数、五边形数和六角形数分别由以下公式给出：
+
+|          |              |                     |
+| :------- | :----------- | :------------------ |
+| 三角形数 | Tn=n(n+1)/2  | 1, 3, 6, 10, 15, …  |
+| 五边形数 | Pn=n(3n−1)/2 | 1, 5, 12, 22, 35, … |
+| 六边形数 | Hn=n(2n−1)   | 1, 6, 15, 28, 45, … |
+
+可以验证，T285 = P165 = H143 = 40755。
+
+找出下一个同时是三角形数、五边形数和六角形数的数。
+
+### 二分法查找
+
+![1555830762326](picture/1555830762326.png)
+
+![1555831976939](picture/1555831976939.png)
+
+![1555832098784](picture/1555832098784.png)
+
+![1555832130941](picture/1555832130941.png)
+
+
+
+
+
+## ProjectEuler-45函数指针的应用
+
+**函数是压缩的数组，数组是展开的函数。**
+
+​                                                                                                                                                                                                                                                         
+
+![1555835134029](picture/1555835134029.png)
+
+![1555835255467](picture/1555835255467.png)
+
+
+
+
+
+
+
+## ProjectEuler-05辗转相除
+
+
+
+
+
+![1555837523464](picture/1555837523464.png)
+
+
+
+ax + by = 1          gcd(a, b) = d
+a = nd
+b = md
+ndx + mdy = 1
+d(nx + my) = 1  相当于d是1的一个因子
+
+```c
+#include <stdio.h>
+
+int x, y;
+int ex_gcd(int a, int b) {
+    if (b == 0) {
+        x = 1, y = 0;
+        return a;
+    }
+    int r = ex_gcd(b, a % b), t = x;
+    x = y;
+    y = t - y * (a / b);
+    return r;
+}
+int main() {
+    int n, m;
+    while (~scanf("%d%d", &n, &m)) {
+        ex_gcd(n, m);
+        printf("%d * %d + %d * %d = %d\n", n, x, m, y, n * x + m * y);
+    }
+    return 0;
+}
+```
+
+
+
+```c
+#include <stdio.h>
+
+int ex_gcd(int a, int b, int *x, int *y) {
+    if (b == 0) {
+        *x = 1, *y = 0;
+        return a;
+    }
+    int r = ex_gcd(b, a % b, y, x);
+    *y = *y - *x * (a / b);
+    return r;
+}
+int main() {
+    int n, m, x, y;
+    while (~scanf("%d%d", &n, &m)) {
+        ex_gcd(n, m, &x, &y);
+        printf("%d * %d + %d * %d = %d\n", n, x, m, y, n * x + m * y);
+    }
+    return 0;
+}
+```
+
+
+
+
+
+## 变参函数
+
+
+
+**实现可变参数max_int, 从若干个传入的参数中返回最大值。**
+
+**int max_int(int a, ...);**
+
+**如何获得 a 往后的参数列表？  --------   va_list 类型的变量**
+
+**如何定位 a 后面的第一个参数的位置？ ----- va_start 函数** 
+
+**如何获取下一个可变参数列表中的参数？---- va_arg 函数**
+
+**如何结束整个获取可变参数列表的动作？---- va_end 函数**
+
+
+
+```c
+#include <stdio.h>
+#include <stdarg.h>
+
+int max_int(int num, ...) {
+    int ans = 0, temp;
+    va_list arg;
+    va_start(arg, num);
+    while (num--) {
+        temp = va_arg(arg, int);
+        if (temp > ans) ans = temp;
+    }
+    va_end(arg);
+    return ans;
+}
+int main() {
+    printf("%d\n", max_int(3, 1, 5, 3));
+    printf("%d\n", max_int(2, 1, 3));
+    printf("%d\n", max_int(6, 6, 5, 3, 7, 9, 10));
+    printf("%d\n", max_int(3, 1, 9, 10));
+    return 0;
+}
+```
+
+![1555849647611](picture/1555849647611.png)
+
+
+
+
 
 ```
 
